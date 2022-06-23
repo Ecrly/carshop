@@ -109,4 +109,11 @@ public class Goods extends BaseEntity implements Serializable {
     public void setDetails(String details) {
         this.details = details;
     }
+
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("" + gid);
+        sb.append(name);
+        return sb.toString();
+    }
 }
