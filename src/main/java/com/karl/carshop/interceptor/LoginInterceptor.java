@@ -23,10 +23,10 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         //HttpServletRequest对象来获取session对象
         Object obj = request.getSession().getAttribute("uid");
-        if(obj == null){
-            response.sendRedirect("/web/login.html");
-            return false;
-        }
+//        if(obj == null){
+//            response.sendRedirect("/web/login.html");
+//            return false;
+//        }
         return true;
 
     }
