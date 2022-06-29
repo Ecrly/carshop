@@ -24,6 +24,9 @@ public class LoginInterceptorCongit implements WebMvcConfigurer {
         //配置白名单：存放在一个List集合中
         List<String> patterns = new ArrayList<>();
         patterns.add("/static/**");
+        patterns.add("/reg");
+        patterns.add("/login");
+        patterns.add("/goods");
 
         //完成拦截器的注册
         registry.addInterceptor(interceptor)

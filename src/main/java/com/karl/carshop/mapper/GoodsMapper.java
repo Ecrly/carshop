@@ -8,24 +8,38 @@ import org.apache.ibatis.annotations.*;
 public interface GoodsMapper {
 
 
+    /**
+     * 插入商品
+     * @param goods 商品信息
+     * @return 数据库中被影响行数
+     */
+    Integer insert(Goods goods);
 
-    @Insert("insert into c_goods (gid, name) values (#{gid}, #{name})")
-    int add(Goods goods);
+    /**
+     * 删除商品（此处存疑，是否定义is_delete字段，或者是否直接修改商品状态？）
+     * @param gid 商品id
+     * @return 数据库中被影响行数
+     */
+    Integer delete(Integer gid);
 
-    @Delete("delete from c_goods where gid=#{gid}")
-    void delete(Integer id);
+    /**
+     * 更新商品信息
+     * @param goods 商品信息
+     * @return 数据库中被影响行数
+     */
+    Integer update(Goods goods);
 
-    @Update("update c_goods set name = #{name}, main_picture = #{mainPicture}, pictures = #{pictures}," +
-            "type = #{type}, goods_price = #{goodsPrice}, cost = #{cost}, stock = #{stock}, " +
-            "sales_volume = #{salesVolume}, goods_state = #{goodsState}, details = #{details}, " +
-            "created_user = #{createdUser}, created_time = #{createdTime}, modified_user = #{modifiedUser}, " +
-            "modified_time = #{modifiedTime} where gid = #{gid}")
-    int update(Goods goods);
+    /**
+     * 查询所有商品（此处后续需要增加分页功能）
+     * @return 商品列表
+     */
+    List<Goods> listGoods();
 
-    @Select("select * from c_goods")
-    List<Goods> findAll();
-
-    @Select("select * from c_goods where gid=#{gid}")
-    Goods get(Integer gid);
+    /**
+     * 根据gid查询商品详细信息
+     * @param gid 商品id
+     * @return 商品对象即商品信息
+     */
+    Goods findGoodsByGid(Integer gid);
 
 }

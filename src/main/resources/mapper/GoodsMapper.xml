@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.karl.carshop.mapper.GoodsMapper">
+
+    <resultMap id="GoodsEntityMap" type="com.karl.carshop.entity.Goods">
+        <result column="gid" property="gid"></result>
+        <result column="goods_name" property="goodsName"></result>
+        <result column="main_picture" property="mainPicture"></result>
+        <result column="goods_type" property="goodsType"></result>
+        <result column="sales_volume" property="salesVolume"></result>
+        <result column="goods_state" property="goodsState"></result>
+        <result column="created_user" property="createdUser"></result>
+        <result column="created_time" property="createdTime"></result>
+        <result column="modified_user" property="modifiedUser"></result>
+        <result column="modified_time" property="modifiedTime"></result>
+    </resultMap>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="gid">
+
+        INSERT INTO c_goods (
+            gid, goods_name, main_picture, pictures, goods_type, goods_price, cost, stock, sales_volume,
+            goods_state, details, created_user, created_time, modified_user, modified_time
+        ) VALUES (
+            #{gid}, #{goodsName}, #{mainPicture}, #{pictures}, #{goodsType}, #{goodsPrice}, #{cost},
+            #{stock}, #{salesVolume}, #{goodsState}, #{details}, #{createdUser}, #{createdTime},
+            #{modifiedUser}, #{modifiedTime}
+        )
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM c_goods where gid = #{gid}
+    </delete>
+
+    <update id="update">
+        UPDATE
+            c_goods
+        SET
+            gid = #{gid}, goods_name = #{goodsName}, main_picture = #{mainPicture}, pictures = #{pictures},
+            goods_type = #{goodsType}, goods_price = #{goodsPrice}, cost = #{cost}, stock = #{stock},
+            sales_volume = #{salesVolume}, goods_state = #{goodsState}, details = #{details},
+            created_user = #{createdUser}, created_time = #{createdTime}, modified_user = #{modifiedUser},
+            modified_time = #{modifiedTime}
+        WHERE
+            gid = #{gid}
+    </update>
+
+    <select id="listGoods" resultMap="GoodsEntityMap">
+        SELECT * FROM c_goods
+    </select>
+
+    <select id="findGoodsByGid" resultMap="GoodsEntityMap">
+        SELECT * FROM c_goods WHERE gid = #{gid}
+    </select>
+
+</mapper>
