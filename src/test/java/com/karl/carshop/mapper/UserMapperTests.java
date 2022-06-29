@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class UserMapperTests {
-    @Autowired
+    @Autowired(required = false)
     private UserMapper userMapper;
     @Test
     public void insert(){

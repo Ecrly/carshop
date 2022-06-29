@@ -18,7 +18,7 @@ import java.util.UUID;
 @Service
 public class UserServiceImpl implements IUserService {
 
-    @Autowired
+    @Autowired(required = false)
     private UserMapper userMapper;
 
     @Override
