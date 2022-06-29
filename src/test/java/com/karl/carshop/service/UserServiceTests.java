@@ -15,8 +15,8 @@ public class UserServiceTests {
     public void reg(){
         try {
             User user = new User();
-            user.setUserName("clarkson");
-            user.setPassword("66666");
+            user.setUserName("test02");
+            user.setPassword("123");
             user.setSex(1);
             user.setUserPhone("66666666666");
             user.setUsercode("6815685818161510628");
