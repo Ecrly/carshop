@@ -12,8 +12,8 @@ public class UserMapperTests {
     @Test
     public void insert(){
         User user = new User();
-        user.setUserName("karl");
-        user.setPassword("66666");
+        user.setUserName("test01");
+        user.setPassword("123");
         user.setSex(0);
         user.setUserPhone("18242838511");
         user.setUsercode("68156858181615155574");
@@ -23,7 +23,7 @@ public class UserMapperTests {
 
     @Test
     public void findByUsername(){
-        User user = userMapper.findByUsername("karl");
+        User user = userMapper.findByUsername("test02");
         System.out.println(user);
     }
 }

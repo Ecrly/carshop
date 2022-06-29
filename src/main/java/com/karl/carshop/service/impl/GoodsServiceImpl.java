@@ -75,7 +75,7 @@ public class GoodsServiceImpl implements IGoodsService {
     public Goods findGoodsByGid(Integer gid) {
         Goods goods = goodsMapper.findGoodsByGid(gid);
         if (goods == null) {
-            throw  new GoodsNotFoundException("商品未找到");
+            throw new GoodsNotFoundException("商品未找到");
         }
         return goods;
     }

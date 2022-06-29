@@ -7,6 +7,10 @@
     <resultMap id="UserEntityMap" type="com.karl.carshop.entity.User">
         <!--将表的资源和类的属性不一致的字段进行匹配，名称一致的字段可以忽略不屑写 -->
         <result column="uid" property="uid"></result>
+        <result column="user_name" property="userName"></result>
+        <result column="user_phone" property="userPhone"></result>
+        <result column="user_email" property="userEmail"></result>
+        <result column="full_name" property="fullName"></result>
         <result column="created_user" property="createdUser"></result>
         <result column="created_time" property="createdTime"></result>
         <result column="modified_user" property="modifiedUser"></result>
