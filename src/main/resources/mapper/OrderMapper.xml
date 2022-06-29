@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.karl.carshop.mapper.OrderMapper">
+
+    <resultMap id="OrderEntityMap" type="com.karl.carshop.entity.Order">
+        <result column="oid" property="oid"></result>
+        <result column="order_number" property="orderNumber"></result>
+        <result column="order_price" property="orderPrice"></result>
+        <result column="payment_method" property="paymentMethod"></result>
+        <result column="send_method" property="sendMethod"></result>
+        <result column="courier_number" property="courierNumber"></result>
+        <result column="order_state" property="orderState"></result>
+        <result column="created_user" property="createdUser"></result>
+        <result column="created_time" property="createdTime"></result>
+        <result column="modified_user" property="modifiedUser"></result>
+        <result column="modified_time" property="modifiedTime"></result>
+    </resultMap>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="oid">
+        INSERT INTO c_order (
+            oid, uid, order_number, order_price, address, payment_method, send_method,
+            courier_number, order_state, created_user, created_time, modified_user, modified_time
+        ) VALUES (
+            #{oid}, #{uid}, #{orderNumber}, #{orderPrice}, #{address}, #{paymentMethod},
+            #{sendMethod}, #{courierNumber}, #{orderState}, #{createdUser}, #{createdTime},
+            #{modifiedUser}, #{modifiedTime}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE
+            c_order
+        SET
+            oid = #{oid}, uid = #{uid}, order_number = #{orderNumber},
+            order_price = #{orderPrice}, address = #{address}, payment_method = #{paymentMethod},
+            send_method = #{sendMethod}, courier_number = #{courierNumber}, order_state = #{orderState},
+            created_user = #{createdUser}, created_time = #{createdTime}, modified_user = #{modifiedUser},
+            modified_time = #{modifiedTime}
+        WHERE
+            oid = #{oid}
+    </update>
+
+    <select id="listOrder" resultMap="OrderEntityMap">
+        SELECT * FROM c_order
+    </select>
+
+    <select id="findOrderByOid" resultMap="OrderEntityMap">
+        SELECT * FROM c_order WHERE oid = #{oid}
+    </select>
+
+</mapper>
