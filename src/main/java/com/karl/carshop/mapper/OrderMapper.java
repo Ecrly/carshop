@@ -14,12 +14,7 @@ public interface OrderMapper {
      */
     Integer insert(Order order);
 
-    /**
-     * 插入订单中的具体商品
-     * @param orderItem 商品条目
-     * @return 数据库中受影响行数
-     */
-    Integer insert(OrderItem orderItem);
+
 
     Integer delete(Integer oid);
 
