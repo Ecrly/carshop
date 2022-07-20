@@ -1,15 +1,23 @@
 package com.karl.carshop.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+
+@ApiModel("创建Swagger响应结果")
 public class User extends BaseEntity implements Serializable {
     private Integer uid;
+    @ApiModelProperty("用户名")
     private String userName;
     private Integer sex;
+    @ApiModelProperty("手机号")
     private String userPhone;
     private String userEmail;
     private String usercode;
+    @ApiModelProperty("密码")
     private String password;
     private String avatar;
     private String fullName;
